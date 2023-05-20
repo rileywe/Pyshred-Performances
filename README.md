@@ -17,7 +17,7 @@ A Neural Network, also known as a Multi-Layer Perceptron (MLP) is a machine lear
 
 #### Shallow Recurrent Decoder (SHRED)
 A SHRED is a type of neural network architecture that combines an LSTM (encoder) with a decoder with one hidden layer. The LSTM excels at capturing temporal dependencies and patterns in the input data, and the decoder takes these patterns and dependencies and reconstructs the input from the encoded representation. Here is a diagram of the structure of the SHRED taken from the paper "Sensing with shallow recurrent decoder networks" by Jan P. Williams, Olivia Zahn, and J. Nathan Kutz:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDmodel.png" width="400"/>
 
 #### Autoencoder
 An autoencoder consists of an encoder and a decoder component. The encoder part processes the input sequence and captures the temporal dependencies in the data, while the decoder part reconstructs the input sequence based on the encoded representation. In this application, the encoder in the SHRED is an LSTM, and the decoder is a shallow version of a simple feed-forward neural network, meaning that is has only one hidden layer. 
@@ -67,41 +67,41 @@ and the results are plotted. The same procedure is used for each experiment.
 ### Computational Results
 Many more images were generated that are not shown here but can be found in the SHRED output images folder. 
 Each of the parameter sweeps can be compared to the output of the model with the default values for each parameter shown here:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/BaseParams.png" width="400"/>
 
 #### Lags
 Time lag does not seem to have very much of an effect on the model's accuracy. The plot of it's performance is shown here:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/lagPlot.png" width="400"/>
 
 As long as the lag isnt extremely low, the accuracy will be about the same regardless of the value. The exception is when the lag is 52, corresponding to one year (and the default value), where the accuracy increases slightly. The output image at that point is shown here:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/lag52.png" width="400"/>
 
 As compared to when the lag is 1 and when it is 78:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/lag1.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/lag78.png" width="400"/>
 
 Except for in the extreme cases, the lag has very little effect on the performance of the model. When the lag is equal to one year of measurements, the data lines up a little better, but the effects are minor, and there is no bonus when the lag is equal to two years of measurements. 
 
 #### Noise
 The noise has a considerable and almost perfectly linear relationship on the performance of the model shown here:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/noisePlot.png" width="400"/>
 
 The slope of this relationship is approximately -4.12% accuracy per 1.0 increase in noise standard deviation. Notice the sharper drop between 0.1 and 0.25 stdev noise. Somewhere between these two noise levels there is a threshold where the accuracy drops more rapidly and then settles into the linear relationship later on. Before this point between 0.0 and 0.1 stdev noise, the accuracy slope is only -3.3 accuracy/noise. Therefore, it is best to try to keep the noise below 0.1 standard deviations where the model is more efficient in dealing with the noise, but after that the performance will only get linearly worse with an increase in noise. 
 
 The outputs for stdev = 0.1, 0.25, and 2.00 are shown here:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/stdev0.1.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/stdev0.25.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/stdev2.png" width="400"/>
 
 
 #### Number of Sensors
 Like the lags, the number of sensors also does not seem to have much of an effect on the model accuracy except in extreme cases. The results are shown here:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/sensorsPlot.png" width="400"/>
 
 As long as the model has 3 sensors, the accuracy is not affected by the parameter. Here are some outputs for 1, 2, and 15 sensors:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/GT28.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/sensors1.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/sensors2.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/sensors15.png" width="400"/>
 
 
 ### Summary and Conclusions
