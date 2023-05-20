@@ -67,7 +67,7 @@ and the results are plotted. The same procedure is used for each experiment.
 ### Computational Results
 Many more images were generated that are not shown here but can be found in the SHRED output images folder. 
 Each of the parameter sweeps can be compared to the output of the model with the default values for each parameter shown here:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/BaseParams.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDOutputImages/baseParams.png" width="400"/>
 
 #### Lags
 Time lag does not seem to have very much of an effect on the model's accuracy. The plot of it's performance is shown here:
