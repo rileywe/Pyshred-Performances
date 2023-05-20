@@ -17,7 +17,7 @@ A Neural Network, also known as a Multi-Layer Perceptron (MLP) is a machine lear
 
 #### Shallow Recurrent Decoder (SHRED)
 A SHRED is a type of neural network architecture that combines an LSTM (encoder) with a decoder with one hidden layer. The LSTM excels at capturing temporal dependencies and patterns in the input data, and the decoder takes these patterns and dependencies and reconstructs the input from the encoded representation. Here is a diagram of the structure of the SHRED taken from the paper "Sensing with shallow recurrent decoder networks" by Jan P. Williams, Olivia Zahn, and J. Nathan Kutz:
-<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDmodel.png" width="400"/>
+<br> <img src="https://github.com/rileywe/Pyshred-Performances/blob/main/SHREDmodel.PNG" width="1000"/>
 
 #### Autoencoder
 An autoencoder consists of an encoder and a decoder component. The encoder part processes the input sequence and captures the temporal dependencies in the data, while the decoder part reconstructs the input sequence based on the encoded representation. In this application, the encoder in the SHRED is an LSTM, and the decoder is a shallow version of a simple feed-forward neural network, meaning that is has only one hidden layer. 
